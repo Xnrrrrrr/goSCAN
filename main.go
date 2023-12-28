@@ -1,5 +1,6 @@
 package main
 
+// roo
 import (
 	"bufio"
 	"encoding/csv"
@@ -115,12 +116,12 @@ func main() {
 				protocols = []string{"udp"}
 			}
 
-			logFileName := "logging.txt"
+			logFileName := "logged.txt"
 			logFile, err := os.OpenFile(logFileName, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 			if err != nil {
 				log.Fatal("Error opening log file:", err)
 			}
-			defer logFile.Close()
+			defer logFile.Close() // took out defer
 
 			// If the file doesn't exist, create it with the header
 			fileStat, err := logFile.Stat()
